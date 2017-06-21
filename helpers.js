@@ -19,5 +19,22 @@
       }
     }
 
+    function Page() {
+    };
+
+    Page.prototype.hasContent = function(element, expectedValue, testName) {
+      if (element != expectedValue) {
+        throw new Error (element + " is not on the page");
+      } else {
+        console.log(testName + " test passed!");
+      }
+    }
+
+    Page.prototype.clickOn = function(element) {
+      var clickEvent = new Event ("click");
+      element.dispatchEvent(clickEvent);
+    }
+
   exports.Assert = Assert;
+  exports.Page = Page;
 })(this);
